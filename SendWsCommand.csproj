@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
 	  <Authors>Bazthal</Authors>
-	  <Version>1.0.0.0</Version>
+	  <Version>1.1.0</Version>
 	  <RepositoryType>git</RepositoryType>
 	  <RepositoryUrl>https://github.com/Bazthal/SendWsCommand</RepositoryUrl>
 	  <Description>A lightweight command-line utility designed to send JSON-formatted WebSocket messages</Description>
@@ -17,6 +17,15 @@
 
   <ItemGroup>
     <PackageReference Include="WebSocketSharp-netstandard" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="send_ws_command_user_guide.md">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

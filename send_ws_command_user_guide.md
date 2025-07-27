@@ -21,27 +21,31 @@ A lightweight, portable command-line utility for sending JSON-formatted WebSocke
 ## 3. Usage Syntax
 
 ```bash
-SendWsCommand.exe <WebSocketServerURL> <Command> [Value]
+SendWsCommand.exe <Address=WebSocketServerURL> <Command=cmd> [Value=val] [Order=order]
 ```
 
 ### Parameters
 
 
-- `<WebSocketServerURL>`: The WebSocket server address including port and path (e.g., `localhost:8080/comm`). While localhost is commonly used when both tools run on the same machine (recommended), any valid network-accessible address can be used.
+- `<WebSocketServerURL>`: The WebSocket server address including port and path (e.g., `localhost:8080/comm`).
 - `<Command>`: The command name (e.g., `play`, `pause`, `next`, `volume`)
 - `[Value]`: (Optional) The value to accompany the command (e.g., `60` for volume)
+- `[Order]`: (Optional) defines the order in which the sort command 
 
 ### Example Commands
 
 ```bash
-SendWsCommand.exe localhost:8080/comm next
-SendWsCommand.exe localhost:8080/comm volume 45
+SendWsCommand.exe address=localhost:8080/comm command=next
+SendWsCommand.exe address=localhost:8080/comm command=volume value=45
+SendWsCommand.exe address=localhost:8080/comm command=sort value=artist order=ascending
 ```
 
 ### Example Output Messages
 
 - `{"Command": "next"}`
 - `{"Command": "volume", "Value": "45"}`
+- `{"Command": "sort", "Value": "artist", "Order": "ascending"}`
+
 
 ---
 
@@ -57,7 +61,9 @@ SendWsCommand.exe localhost:8080/comm volume 45
    - **Program**: `C:\Path\To\SendWsCommand.exe`
    - **Arguments**: `localhost:8080/comm next`
 ![Add Program](./assets/Streamer.bot_Setup_1.png)
-![Arguments](./assets/Streamer.bot_Setup_2.png)
+![Arguments-Next](./assets/Streamer.bot_Setup_next.png)
+![Arguments-Volume](./assets/Streamer.bot_Setup_volume.png)
+![Arguments-Sort](./assets/Streamer.bot_Setup_sort.png)
 
 6. Assign the action to a hotkey, Twitch command, or event trigger.
 
@@ -102,7 +108,7 @@ SendWsCommand.exe localhost:8080/comm volume 45
 
 ## 7. Version Info
 
-- Current Version: 1.0.0
+- Current Version: 1.0.1
 - Last Updated: July 2025
 
 For updates, visit the MP3 Player project site or repository.
